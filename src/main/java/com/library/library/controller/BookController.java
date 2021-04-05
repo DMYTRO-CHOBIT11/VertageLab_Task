@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.NoSuchElementException;
 
@@ -47,5 +48,12 @@ public class BookController {
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity error(){
         return new ResponseEntity("This book in not exist",HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("/")
+    public ModelAndView qwer(){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
     }
 }
